@@ -10,30 +10,26 @@ export class Fraction {
     const newNumerator =
       this.numerator * other.denominator + other.numerator * this.denominator;
     const newDenominator = this.denominator * other.denominator;
-    this.numerator = newNumerator;
-    this.denominator = newDenominator;
+    return new Fraction(newNumerator, newDenominator);
   }
 
   public subtract(other: Fraction) {
     const newNumerator =
       this.numerator * other.denominator - other.numerator * this.denominator;
     const newDenominator = this.denominator * other.denominator;
-    this.numerator = newNumerator;
-    this.denominator = newDenominator;
+    return new Fraction(newNumerator, newDenominator);
   }
 
   public multiply(other: Fraction) {
     const newNumerator = this.numerator * other.numerator;
     const newDenominator = this.denominator * other.denominator;
-    this.numerator = newNumerator;
-    this.denominator = newDenominator;
+    return new Fraction(newNumerator, newDenominator);
   }
 
   public divide(other: Fraction) {
     const newNumerator = this.numerator * other.denominator;
     const newDenominator = this.denominator * other.numerator;
-    this.numerator = newNumerator;
-    this.denominator = newDenominator;
+    return new Fraction(newNumerator, newDenominator);
   }
 
   public toFloat(precision: number): number {

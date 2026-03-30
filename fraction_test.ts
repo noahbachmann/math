@@ -42,10 +42,10 @@ Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
 	const right = new Fraction(2, 6);
 
 	// Act
-	left.add(right);
+	const solution = left.add(right);
 
 	// Assert
-	assertAlmostEquals(left.toFloat(0.01), 0.67);
+	assertAlmostEquals(solution.toFloat(0.01), 0.67);
 });
 
 Deno.test("1/3 - 2/6 = 0/3", () => {
@@ -54,10 +54,10 @@ Deno.test("1/3 - 2/6 = 0/3", () => {
 	const right = new Fraction(2, 6);
 
 	// Act
-	left.subtract(right);
+	const solution = left.subtract(right);
 
 	// Assert
-	assertEquals(left.toFloat(0.1), 0);
+	assertEquals(solution.toFloat(0.1), 0);
 });
 
 Deno.test("1/3 * 2/6 = 1/9", () => {
@@ -66,10 +66,10 @@ Deno.test("1/3 * 2/6 = 1/9", () => {
 	const right = new Fraction(2, 6);
 
 	// Act
-	left.multiply(right);
+	const solution = left.multiply(right);
 
 	// Assert
-	assertEquals(left.toFloat(0.01), 0.11);
+	assertEquals(solution.toFloat(0.01), 0.11);
 });
 
 Deno.test("1/3 / 2/6 = 6/6", () => {
@@ -78,10 +78,10 @@ Deno.test("1/3 / 2/6 = 6/6", () => {
 	const right = new Fraction(2, 6);
 
 	// Act
-	left.divide(right);
+	const solution = left.divide(right);
 
 	// Assert
-	assertEquals(left.toFloat(0.01), 1);
+	assertEquals(solution.toFloat(0.01), 1);
 });
 
 Deno.test("Check error parses and parsing 1/3 should be 1/3", () => {
