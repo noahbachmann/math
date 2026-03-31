@@ -1,5 +1,5 @@
 export class GCD {
-	public static BruteForce(a: number, b: number): number {
+	public static bruteForce(a: number, b: number): number {
 		const pre = this.firstCheck(a, b);
 		if (pre == null) {
 			return 0;

@@ -42,7 +42,7 @@ export class Fraction {
 	}
 
 	public cancel(): Fraction {
-		const divider = GCD.BruteForce(this.numerator, this.denominator);
+		const divider = GCD.bruteForce(this.numerator, this.denominator);
 
 		const newNumerator = this.numerator / divider;
 		const newDenominator = this.denominator / divider;
