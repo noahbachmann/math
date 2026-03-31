@@ -8,7 +8,7 @@ const testVariables = [
 	{ a: 81, b: 36, gcd: 9 },
 ];
 
-Deno.test("(bruteForce) using testVariables", () => {
+Deno.test("GCD(bruteForce) using testVariables", () => {
 	for (const { a, b, gcd } of testVariables) {
 		//Arrange and Act
 		const actual = GCD.bruteForce(a, b);
@@ -17,7 +17,7 @@ Deno.test("(bruteForce) using testVariables", () => {
 	}
 });
 
-Deno.test("(euclid) using testVariables", () => {
+Deno.test("GCD(euclid) using testVariables", () => {
 	for (const { a, b, gcd } of testVariables) {
 		//Arrange and Act
 		const actual = GCD.euclid(a, b);
@@ -26,6 +26,6 @@ Deno.test("(euclid) using testVariables", () => {
 	}
 });
 
-Deno.test("test null division (error thrown)", () => {
+Deno.test("GCD null division check (error thrown)", () => {
 	assertThrows(() => GCD.euclid(3, 0), `can't divide by 0`);
 })

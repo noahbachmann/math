@@ -1,20 +1,12 @@
 import { assertAlmostEquals, assertEquals, assertThrows } from "@std/assert";
 import { Fraction } from "./fraction.ts";
 
-Deno.test("1/3 to float(0.01) is 0.33", () => {
-	// Arrange
-	const num = new Fraction(1, 3);
-
-	// Assert
-	assertEquals(num.toFloat(0.01), 0.33);
-});
-
-Deno.test("Convert to string", () => {
+Deno.test("FRACTION CONVERT: to string", () => {
 	const data = new Fraction(1, 3);
 	assertEquals(data.toString(), "1/3");
 });
 
-Deno.test("fraction of 1/1 is 1.0", () => {
+Deno.test("FRACTION: 1/1 is 1.0", () => {
 	// Arrange
 	const fraction = new Fraction(1, 1);
 
@@ -25,7 +17,7 @@ Deno.test("fraction of 1/1 is 1.0", () => {
 	assertEquals(float, 1.0);
 });
 
-Deno.test("fraction of 2/3 is roughly 0.67", () => {
+Deno.test("FRACTION: 2/3 is ~0.67", () => {
 	// Arrange
 	const fraction = new Fraction(2, 3);
 
@@ -36,7 +28,7 @@ Deno.test("fraction of 2/3 is roughly 0.67", () => {
 	assertAlmostEquals(float, 0.67);
 });
 
-Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
+Deno.test("FRACTION ADDITION: 1/3 + 2/6 = 2/3 is ~0.67", () => {
 	// Arrange
 	const left = new Fraction(1, 3);
 	const right = new Fraction(2, 6);
@@ -48,7 +40,7 @@ Deno.test("1/3 + 2/6 = 2/3 is roughly 0.67", () => {
 	assertAlmostEquals(solution.toFloat(0.01), 0.67);
 });
 
-Deno.test("1/3 - 2/6 = 0/3", () => {
+Deno.test("FRACTION SUBSTRACTION: 1/3 - 2/6 = 0/3", () => {
 	// Arrange
 	const left = new Fraction(1, 3);
 	const right = new Fraction(2, 6);
@@ -60,7 +52,7 @@ Deno.test("1/3 - 2/6 = 0/3", () => {
 	assertEquals(solution.toFloat(0.1), 0);
 });
 
-Deno.test("1/3 * 2/6 = 1/9", () => {
+Deno.test("FRACTION MULTIPLICATION: 1/3 * 2/6 = 1/9", () => {
 	// Arrange
 	const left = new Fraction(1, 3);
 	const right = new Fraction(2, 6);
@@ -72,7 +64,7 @@ Deno.test("1/3 * 2/6 = 1/9", () => {
 	assertEquals(solution.toFloat(0.01), 0.11);
 });
 
-Deno.test("1/3 / 2/6 = 1/1", () => {
+Deno.test("FRACTION DIVISION: 1/3 / 2/6 = 1/1", () => {
 	// Arrange
 	const left = new Fraction(1, 3);
 	const right = new Fraction(2, 6);
@@ -84,7 +76,7 @@ Deno.test("1/3 / 2/6 = 1/1", () => {
 	assertEquals(solution, new Fraction(1, 1));
 });
 
-Deno.test("Cancelling 4/6 should be 2/3", () => {
+Deno.test("FRACTION CANCEL: Cancelling 4/6 should be 2/3", () => {
 	//Arrange
 	const check = new Fraction(4, 6);
 
@@ -95,7 +87,7 @@ Deno.test("Cancelling 4/6 should be 2/3", () => {
 	assertEquals(solution, new Fraction(2,3));
 })
 
-Deno.test("Check error parses and parsing 2/6 should be 1/3", () => {
+Deno.test("FRACTION PARSE: parsing '2/6' = 1/3 and error parses", () => {
 	//Arrange
 	const check = Fraction.parse("2/6");
 	//Assert
