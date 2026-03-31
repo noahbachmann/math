@@ -84,6 +84,17 @@ Deno.test("1/3 / 2/6 = 6/6", () => {
 	assertEquals(solution.toFloat(0.01), 1);
 });
 
+Deno.test("Cancelling 4/6 should be 2/3", () => {
+	//Arrange
+	const check = new Fraction(4, 6);
+
+	//Act
+	const solution = check.cancel();
+
+	//Assert
+	assertEquals(solution, new Fraction(2,3));
+})
+
 Deno.test("Check error parses and parsing 1/3 should be 1/3", () => {
 	//Arrange
 	const check = Fraction.parse("1/3");
