@@ -5,7 +5,12 @@ export class Fraction {
 	constructor(
 		private numerator: number,
 		private denominator: number,
-	) {}
+	) {
+    const divider = GCD.euclid(this.numerator, this.denominator);
+
+		this.numerator = this.numerator / divider;
+		this.denominator = this.denominator / divider;
+  }
 
 	public add(other: Fraction) {
 		const newNumerator =
@@ -42,7 +47,7 @@ export class Fraction {
 	}
 
 	public cancel(): Fraction {
-		const divider = GCD.bruteForce(this.numerator, this.denominator);
+		const divider = GCD.euclid(this.numerator, this.denominator);
 
 		const newNumerator = this.numerator / divider;
 		const newDenominator = this.denominator / divider;

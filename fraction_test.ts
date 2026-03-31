@@ -72,7 +72,7 @@ Deno.test("1/3 * 2/6 = 1/9", () => {
 	assertEquals(solution.toFloat(0.01), 0.11);
 });
 
-Deno.test("1/3 / 2/6 = 6/6", () => {
+Deno.test("1/3 / 2/6 = 1/1", () => {
 	// Arrange
 	const left = new Fraction(1, 3);
 	const right = new Fraction(2, 6);
@@ -81,7 +81,7 @@ Deno.test("1/3 / 2/6 = 6/6", () => {
 	const solution = left.divide(right);
 
 	// Assert
-	assertEquals(solution.toFloat(0.01), 1);
+	assertEquals(solution, new Fraction(1, 1));
 });
 
 Deno.test("Cancelling 4/6 should be 2/3", () => {
@@ -95,9 +95,9 @@ Deno.test("Cancelling 4/6 should be 2/3", () => {
 	assertEquals(solution, new Fraction(2,3));
 })
 
-Deno.test("Check error parses and parsing 1/3 should be 1/3", () => {
+Deno.test("Check error parses and parsing 2/6 should be 1/3", () => {
 	//Arrange
-	const check = Fraction.parse("1/3");
+	const check = Fraction.parse("2/6");
 	//Assert
 	assertThrows(
 		() => Fraction.parse("1"),
@@ -111,5 +111,5 @@ Deno.test("Check error parses and parsing 1/3 should be 1/3", () => {
 		() => Fraction.parse("2/x"),
 		"non-numeric numerator/denominator",
 	);
-	assertEquals(check.toFloat(0.01), 0.33);
+	assertEquals(check, new Fraction(1, 3));
 });
