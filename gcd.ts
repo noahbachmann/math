@@ -1,10 +1,6 @@
 export class GCD {
 	public static bruteForce(a: number, b: number): number {
-		const pre = this.firstCheck(a, b);
-		if (pre == null) {
-			return 0;
-		}
-		[a, b] = pre;
+		[a, b] = this.firstCheck(a, b);
 
 		let i = a;
 		while (i > 1) {
@@ -17,11 +13,7 @@ export class GCD {
 	}
 
 	public static euclid(a: number, b: number): number {
-		const pre = this.firstCheck(a, b)
-		if (pre === null) {
-			return 0;
-		}
-		[a, b] = pre;
+		[a, b] = this.firstCheck(a, b);
 
 		while (a != b) {
 			const c = b - a;
@@ -35,12 +27,12 @@ export class GCD {
 		return a;
 	}
 
-	private static firstCheck(a: number, b: number): [number, number] | null  {
+	private static firstCheck(a: number, b: number): [number, number]  {
 		if (b === 0) {
 			throw new Error(`can't divide by 0`);
 		}
 		if (a === 0) {
-			return null;
+			return [1, 1];
 		}
 
 		a = Math.abs(a);

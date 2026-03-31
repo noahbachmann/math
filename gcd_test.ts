@@ -4,7 +4,7 @@ import { GCD } from "./gcd.ts";
 const testVariables = [
 	{ a: 7, b: 5, gcd: 1 },
 	{ a: 6, b: 1, gcd: 1 },
-	{ a: 0, b: 6, gcd: 0 },
+	{ a: 0, b: 6, gcd: 1 },
 	{ a: 81, b: 36, gcd: 9 },
 ];
 
